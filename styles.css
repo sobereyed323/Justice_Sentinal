@@ -35,7 +35,16 @@ body {
     border-radius: 5px;
 }
 
+/* Adding new styles for robocop model*/
+#robocop-model {
+    width: 60%;
+    height: 400px;
+    margin: 0 auto;
+    display: block;
+}
+
 .footer {
     text-align: center;
     padding: 20px 0;
 }
+
