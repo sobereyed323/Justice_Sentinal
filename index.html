@@ -6,6 +6,7 @@
     <title>Personal Website</title>
     <link href="styles.css" rel="stylesheet">
     <link href="tailwind.css" rel="stylesheet">
+    <script src="openai_bot.js"></script>
 </head>
 <body class="bg-black text-white">
     <header class="p-5">
@@ -24,9 +25,15 @@
             <h2 class="text-2xl">Contact Me</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </section>
+        <section id="ai-bot" class="mb-5">
+            <h2 class="text-2xl">Chat with our AI Bot</h2>
+            <div id="openai-chatbot"></div>
+        </section>
     </main>
     <footer class="p-5">
-        <p>© 2022 My Personal Website</p>
+        <p>Â© 2022 My Personal Website</p>
     </footer>
+    <script src="fetch_data.js"></script>
+    <script src="customer_information_submission.js"></script>
 </body>
 </html>
