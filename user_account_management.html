@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>User Account Management</title>
+    <!-- Importing CSS stylesheets -->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="user_account_management.js"></script>
+</head>
+<body>
+    <header>
+        <h1>User Account Management</h1>
+    </header>
+    <!-- Section for user information -->
+    <section id="user-information">
+        <h2>Save User Information</h2>
+        <form id="save-user-info">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br>
+            <input type="submit" value="Save">
+        </form>
+    </section>
+    <!-- Section for case file upload -->
+    <section id="case-files">
+        <h2>Upload Case Files</h2>
+        <form id="upload-case-files" enctype="multipart/form-data">
+            <label for="case-file">Select file:</label>
+            <input type="file" id="case-file" name="case-file"><br>
+            <input type="submit" value="Upload">
+        </form>
+    </section>
+</body>
+</html>

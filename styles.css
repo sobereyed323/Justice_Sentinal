@@ -1,26 +1,31 @@
+/* Importing tailwind css for utility classes */
 @import 'tailwind.css';
 
+/* Default body styles */
 body {
     background-color: #121212;
     color: #ffffff;
 }
 
+/* Responsive container */
 .container {
     max-width: 900px;
     margin: 0 auto;
     padding: 20px;
 }
 
+/* Header styles */
 .header {
     text-align: center;
     padding: 20px 0;
 }
 
+/* Section style */
 .section {
     margin-bottom: 20px;
 }
 
-/* added new styles for AI Bot section in the HTML */
+/* Styles for AI bot interaction */
 #ai-bot {
     border: 1px solid #ffffff;
     border-radius: 5px;
@@ -35,7 +40,7 @@ body {
     border-radius: 5px;
 }
 
-/* Adding new styles for robocop model*/
+/* Styles for Robocop model image */
 #robocop-model {
     width: 60%;
     height: 400px;
@@ -43,8 +48,42 @@ body {
     display: block;
 }
 
+/* Footer style */
 .footer {
     text-align: center;
     padding: 20px 0;
 }
 
+/* New styles for the additional sections in HTML */
+
+/* Style for interactive services section */
+#services {
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Style for account management section */
+#manage-account {
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Style for agency interaction section */
+#agency-interaction {
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Style for legal disclaimer section */
+#legal-disclaimer {
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
