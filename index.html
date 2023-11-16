@@ -11,11 +11,29 @@
 <body class="bg-black text-white">
     <header class="p-5">
         <h1 class="text-4xl">Welcome to Justice Sentinel's official website</h1>
+        <!-- Adding Navigation Bar to the header -->
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#reports">Reports</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- Adding a call-to-action button in the header -->
+        <button id="report" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+            Submit a Report
+        </button>
     </header>
+    
     <main class="p-5">
+        <section id="home">
+            <!-- Welcome section with a brief overview of the website -->
+        </section>
         <section id="about" class="mb-5">
             <h2 class="text-2xl">About Justice Sentinel</h2>
-            <p>Justice Sentinel is a robot like Robocop. He represents the future of law enforcement. His key features include superior strength, speed, and durability, making him a formidable peacekeeping entity.</p>
+            <p>Justice Sentinel is a robot like Robocop. It represents the future of law enforcement. Its key features include superior strength, speed, and durability, making him a formidable peacekeeping entity.</p>
             <img id="robocop-model" src="images/robocop.png" alt="3D model of Robocop">
         </section>
         <section id="services" class="mb-5">
@@ -24,6 +42,12 @@
             <!-- Add different features for users to interact with -->
             <!-- Submit reports, Check report status, Provide legal info, engage in conversations, Notify user progress, Interact with Gov't agencies, Save user info, Upload case files, generate Dynamic API requests, Facilitate Agency Communication, Generate Transcriptions, Summarize details, Generate Visual summary, Interpret Code and AI-Powered User Interaction -->
             <!-- Each functionality will need a respective JavaScript file linked here for implementation -->
+        </section>
+        <section id="reports">
+            <!-- Adding a new section to showcase featured reports -->
+        </section>
+        <section id="contact">
+            <!-- Adding a new section for user to contact -->
         </section>
         <section id="agency-interaction" class="mb-5">
             <h2 class="text-2xl">Agency Interaction</h2>
@@ -35,7 +59,7 @@
             <p>Manage your account details, uploaded case files, and saved reports.</p>
             <!-- Add feature for account management -->
         </section>
-        <section id="ai-bot" class="mb-5">
+        <section id="chat-bot" class="mb-5">
             <h2 class="text-2xl">Chat with Justice Sentinel</h2>
             <p>Interact with the Justice Sentinel interface to get instant answers to all your legal queries. Just type your question and click submit.</p>
             <div id="openai-chatbot"></div>
@@ -46,9 +70,21 @@
             <!-- Link to the legal disclaimer and terms page -->
         </section>
     </main>
+    
     <footer class="p-5">
         <p>© 2022 Justice Sentinel's Website. All rights reserved.</p>
+        <!-- Providing quick links, contact information, and social media links in the footer -->
+        <div id="quick-links">
+            <!-- Adding Quick links -->
+        </div>
+        <div id="contact-info">
+            <!-- Adding Contact information -->
+        </div>
+        <div id="social-media-links">
+            <!-- Adding Social Media Links -->
+        </div>
     </footer>
+    
     <script src="fetch_data.js"></script>
     <script src="customer_information_submission.js"></script>
     <!-- Link to other scripts for interactive features -->
