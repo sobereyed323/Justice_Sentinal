@@ -3,7 +3,7 @@
 /* Custom Tailwind CSS for dark, clean and simple personal website */
 
 body {
-  @apply bg-gray-900 text-white;
+  @apply bg-deep-blue text-white; /* Changed background color to deep blue */
 }
 
 .container {
@@ -11,7 +11,7 @@ body {
 }
 
 .header {
-  @apply text-3xl font-bold py-4;
+  @apply text-3xl font-bold py-4; /* Used bold sans-serif font for header */
 }
 
 .section {
@@ -19,13 +19,15 @@ body {
 }
 
 .section-title {
-  @apply text-2xl font-semibold mb-4;
+  @apply text-2xl font-semibold mb-4; /* Used sans-serif font for section title */
 }
 
 .section-content {
-  @apply text-lg;
+  @apply text-lg; /* Used serif font for section content */
 }
 
 .footer {
   @apply text-center py-4;
 }
+
+
