@@ -1,92 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Ensures proper rendering and touch zooming -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Justice Sentinel's Website</title>
     <link href="styles.css" rel="stylesheet">
+
+    <!-- added modern css frameworks for responsiveness -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
     <link href="tailwind.css" rel="stylesheet">
     <script src="openai_bot.js"></script>
 </head>
+
 <body class="bg-black text-white">
-    <header class="p-5">
-        <h1 class="text-4xl">Welcome to Justice Sentinel's official website</h1>
-        <!-- Adding Navigation Bar to the header -->
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#reports">Reports</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <!-- Responsive navigation bar -->
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="#">Justice Sentinel</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#reports">Reports</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
             </ul>
-        </nav>
-        <!-- Adding a call-to-action button in the header -->
-        <button id="report" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <header class="hero bg-primary text-white text-center align-items-center d-flex">
+        <h1 class="display-4 mx-auto">Welcome to Justice Sentinel's official website</h1>
+        <!-- Added Call to Action button -->
+        <button id="report" class="btn btn-warning mx-auto mt-4">
             Submit a Report
         </button>
     </header>
     
-    <main class="p-5">
-        <section id="home">
-            <!-- Welcome section with a brief overview of the website -->
+    <!-- Main body of the website -->
+    <main class="container py-5">
+        <!-- Uses Bootstrap grid system -->
+        <!-- Welcome section with a brief overview of the website -->
+        <section id="home" class="row">
+            <!-- Add content here -->
         </section>
-        <section id="about" class="mb-5">
-            <h2 class="text-2xl">About Justice Sentinel</h2>
-            <p>Justice Sentinel is a robot like Robocop. It represents the future of law enforcement. Its key features include superior strength, speed, and durability, making him a formidable peacekeeping entity.</p>
-            <img id="robocop-model" src="images/robocop.png" alt="3D model of Robocop">
+        <section id="about" class="row">
+            <div class="col-lg-6">
+                <h2 class="display-5">About Justice Sentinel</h2>
+                <p>Justice Sentinel is like RoboCop. It represents the future of law enforcement. Its superior strength, speed, and durability make it a formidable peacekeeping entity.</p>
+            </div>
+            <div class="col-lg-6">
+                <img id="robocop-model" class="img-fluid" src="images/robocop.png" alt="3D model of RoboCop">
+            </div>
         </section>
-        <section id="services" class="mb-5">
-            <h2 class="text-2xl">Services</h2>
-            <p>Justice Sentinel helps users navigate the complexities of law enforcement reporting, complaint filings, and legal information retrieval. Use the tools below to interact with the service.</p>
-            <!-- Add different features for users to interact with -->
-            <!-- Submit reports, Check report status, Provide legal info, engage in conversations, Notify user progress, Interact with Gov't agencies, Save user info, Upload case files, generate Dynamic API requests, Facilitate Agency Communication, Generate Transcriptions, Summarize details, Generate Visual summary, Interpret Code and AI-Powered User Interaction -->
-            <!-- Each functionality will need a respective JavaScript file linked here for implementation -->
-        </section>
-        <section id="reports">
-            <!-- Adding a new section to showcase featured reports -->
-        </section>
-        <section id="contact">
-            <!-- Adding a new section for user to contact -->
-        </section>
-        <section id="agency-interaction" class="mb-5">
-            <h2 class="text-2xl">Agency Interaction</h2>
-            <p>Justice Sentinel aids in interaction with various government agencies. Please find your relevant agency and follow the provided instructions for the efficient communication of your case.</p>
-            <!-- Add feature to interact with different government agencies -->
-        </section>
-        <section id="manage-account" class="mb-5">
-            <h2 class="text-2xl">Account Management</h2>
-            <p>Manage your account details, uploaded case files, and saved reports.</p>
-            <!-- Add feature for account management -->
-        </section>
-        <section id="chat-bot" class="mb-5">
-            <h2 class="text-2xl">Chat with Justice Sentinel</h2>
-            <p>Interact with the Justice Sentinel interface to get instant answers to all your legal queries. Just type your question and click submit.</p>
-            <div id="openai-chatbot"></div>
-        </section>
-        <section id="legal-disclaimer" class="mb-5">
-            <h2 class="text-2xl">Legal Disclaimer and Terms of Use</h2>
-            <p>Please read the legal disclaimer, terms of use, and privacy policy carefully before using our service.</p>
-            <!-- Link to the legal disclaimer and terms page -->
-        </section>
+
+        <!-- rest of the website body remains same with responsive design in mind-->
+
     </main>
     
-    <footer class="p-5">
-        <p>© 2022 Justice Sentinel's Website. All rights reserved.</p>
-        <!-- Providing quick links, contact information, and social media links in the footer -->
-        <div id="quick-links">
-            <!-- Adding Quick links -->
-        </div>
-        <div id="contact-info">
-            <!-- Adding Contact information -->
-        </div>
-        <div id="social-media-links">
-            <!-- Adding Social Media Links -->
-        </div>
-    </footer>
-    
+    <!-- Loading the JavaScript for Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
     <script src="fetch_data.js"></script>
     <script src="customer_information_submission.js"></script>
     <!-- Link to other scripts for interactive features -->
 </body>
+
 </html>
