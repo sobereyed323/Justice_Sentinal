@@ -1,90 +1,101 @@
-/* Importing tailwind css for utility classes */
-@import 'tailwind.css';
+/* Main CSS for Justice Sentinel's Website */
 
-/* Default body styles */
+:root {
+  --main-bg-color: #1c2938;
+  --main-text-color: #e0e1dd;
+  --accent-color: #ff4500;
+  --secondary-color: #2f4f4f;
+  --light-color: #d3d3d3;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-    background-color: #00008B; /* Changed background-color to deep blue */
-    color: #ffffff;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-/* Responsive container */
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
+/* Navigation Bar */
+.navbar {
+  background-color: var(--main-bg-color);
 }
 
-/* Header styles */
-.header {
-    text-align: center;
-    padding: 20px 0;
-    font-weight: bold; /* Used bold sans-serif font for headings */
+.navbar-brand, 
+.navbar-nav .nav-link {
+  color: var(--main-text-color);
+  transition: color 0.5s ease;
 }
 
-/* Section style */
-.section {
-    margin-bottom: 20px;
+.navbar-brand:hover, 
+.navbar-nav .nav-link:hover {
+  color: var(--light-color);
 }
 
-/* Styles for AI bot interaction */
-#ai-bot {
-    border: 1px solid #ffffff;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
+/* Hero Section */
+.hero {
+  background-color: var(--secondary-color);
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-#openai-chatbot {
-    width: 100%;
-    height: 300px;
-    border: 0;
-    border-radius: 5px;
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5em;
 }
 
-/* Styles for Robocop model image */
-#robocop-model {
-    width: 60%;
-    height: 400px;
-    margin: 0 auto;
-    display: block;
+#report {
+  background-color: var(--accent-color);
+  border: none;
+  color: var(--main-text-color);
+  padding: 10px 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
 }
 
-/* Footer style */
-.footer {
-    text-align: center;
-    padding: 20px 0;
+#report:hover {
+  background-color: var(--light-color);
 }
 
-/* New styles for the additional sections in HTML */
-
-/* Style for interactive services section */
-#services {
-    border: 1px solid #ffffff;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
+/* About Section */
+#about {
+  padding: 2em 0;
 }
 
-/* Style for account management section */
-#manage-account {
-    border: 1px solid #ffffff;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
+#about h2 {
+  color: var(--accent-color);
+  margin-bottom: 1em;
 }
 
-/* Style for agency interaction section */
-#agency-interaction {
-    border: 1px solid #ffffff;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
+#about p {
+  color: var(--main-text-color);
 }
 
-/* Style for legal disclaimer section */
-#legal-disclaimer {
-    border: 1px solid #ffffff;
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
+#about img {
+  width: 100%;
+}
+
+/* Responsive Design for smaller screens */
+@media screen and (max-width: 768px) {
+  
+  .hero {
+    height: 50vh;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  #about {
+    flex-direction: column;
+  }
 }
