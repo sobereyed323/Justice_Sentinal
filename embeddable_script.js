@@ -16,6 +16,9 @@ const createBotUI = () => {
         <button id="submit-button">Submit</button>
         <button id="check-report">Check Report Status</button>
         <button id="legal-info">Legal Information</button>
+        <button id="file-complaint">File Complaint</button>
+        <button id="follow-up-appeal">Follow up Appeal</button>
+        <button id="foia-request">Make FOIA Request</button>
     `;
 
     return botElement;
@@ -36,6 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let submitButton = document.getElementById("submit-button");
     let userInput = document.getElementById("user-input");
     let chatWindow = document.getElementById("chat-window");
+    let fileComplaintButton = document.getElementById("file-complaint");
+    let followUpAppealButton = document.getElementById("follow-up-appeal");
+    let FOIARequestButton = document.getElementById("foia-request");
     
     // Function for dealing with bot response
     const handleResponse = (response) => {
@@ -67,6 +73,30 @@ document.addEventListener("DOMContentLoaded", () => {
     legalInfoButton.onclick = () => {
         let userText = "provide legal info";
         aiBot.provideLegalInfo(userText)
+            .then(response => handleResponse(response))
+            .catch(err => console.error(err));
+    };
+
+    // Submit file complaint request to bot
+    fileComplaintButton.onclick = () => {
+        let userText = "file complaint";
+        aiBot.fileComplaint(userText)
+            .then(response => handleResponse(response))
+            .catch(err => console.error(err));
+    };
+    
+    // Submit follow up appeal request to bot
+    followUpAppealButton.onclick = () => {
+        let userText = "follow up appeal";
+        aiBot.followUpAppeal(userText)
+            .then(response => handleResponse(response))
+            .catch(err => console.error(err));
+    };
+    
+    // Submit FOIA request to bot
+    FOIARequestButton.onclick = () => {
+        let userText = "make FOIA request";
+        aiBot.handleFOIARequest(userText)
             .then(response => handleResponse(response))
             .catch(err => console.error(err));
     };
