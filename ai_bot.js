@@ -63,7 +63,8 @@ class AIBot {
             });
 
             if (this.isValidResponse(result.data.choices[0].text)) {
-                this.virtualDOM.set({ process_text_output: result.data.choices[0].text }); // Store the result in the virtual DOM
+                // After processing the text, the result is stored in the virtual DOM for later rendering.
+                this.virtualDOM.set({ process_text_output: result.data.choices[0].text });
                 return result.data.choices[0].text;
             } else {
                 throw 'invalid response'
@@ -79,13 +80,12 @@ class AIBot {
     }
 
     render() {
-        // Added functionality to read current state of virtual DOM and perform actions accordingly.
-        // This is an example of logging to the console. Real-life applications could include DOM manipulation, analytics tracking etc.
-        const dom = this.virtualDOM.get(); // Get the current state from the virtual DOM
-        console.log(dom); // Logs the virtual DOM state to the console
+        // New 'render' method added - it fetches the current state from the virtual DOM and logs it to the console.
+        const dom = this.virtualDOM.get();
+        console.log(dom);
     }
 }
 
 module.exports = AIBot;
 ```
-This updated script includes a 'render' method that accesses the current state of the VirtualDOM instance and performs actions based on it. The 'process_text' method has been updated to store its result in the virtual DOM. Now, each time 'render' is called, it will output the contents of the virtual DOM to the console. You can customize these methods to suit the specific requirements of your application.
+Now, the AIBot class includes a `render` method that logs the current state of the virtual DOM, and the `process_text` method updates the virtual DOM with the output result.
