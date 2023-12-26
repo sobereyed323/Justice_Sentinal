@@ -2,17 +2,55 @@
 // Import modules
 const AIBot = require('./ai_bot.js');
 
-// Create a new instance of our AI bot
-const aiBot = new AIBot({/* user_data goes here */});
+// For managing UI state, we use a simple createStore function that mimics Redux
+// This makes state management more organized and changes to UI more consistent
+function createStore(reducer) {
+    let state;
+    let listeners = [];
+    
+    const getState = () => state;
+
+    const dispatch = (action) => {
+        state = reducer(state, action);
+        listeners.forEach(listener => listener());
+    };
+
+    const subscribe = (listener) => {
+        listeners.push(listener);
+        return () => {
+            listeners = listeners.filter(l => l !== listener);
+        }
+    };
+
+    dispatch({});
+
+    return { getState, dispatch, subscribe };
+}
+
+// Our reducer function defines state transitions based on dispatched actions
+function reducer(state = {}, action) {
+    switch (action.type) {
+        case 'UPDATE_UI':
+            return { ...state, ...action.payload };
+        default:
+            return state;
+    }
+}
+
+// Create a store to manage our UI state
+let store = createStore(reducer);
 
 // Function for creating bot UI to allow a more modular design
 const createBotUI = () => {
+    // UI is updated based on state from our store
+    let state = store.getState();
+
     let botElement = document.createElement("div");
 
     botElement.innerHTML = `
         <h3>Welcome! I am Justice Sentinel, your personal law-enforcing AI assistant, here to answer your questions!</h3>
-        <div id="chat-window"></div>
-        <input id="user-input" type="text" />
+        <div id="chat-window">${state.chatHistory || ''}</div>
+        <input id="user-input" type="text" value="${state.userInput || ''}" />
         <button id="submit-button">Submit</button>
         <button id="check-report">Check Report Status</button>
         <button id="legal-info">Legal Information</button>
@@ -26,79 +64,33 @@ const createBotUI = () => {
 
 // Embed bot to the website as a 3D Robocop
 document.addEventListener("DOMContentLoaded", () => {
-    let botContainer = document.getElementById("openai-chatbot");
+    // Re-render the bot UI whenever the state changes
+    store.subscribe(() => {
+        let botContainer = document.getElementById("openai-chatbot");
+        botContainer.innerHTML = "";
+        botContainer.appendChild(createBotUI());
+    });
 
-    // Calling function to create bot UI, providing a more modular design
-    let botUI = createBotUI();
+    // Add event listeners for bot UI using event delegation
+    document.getElementById("openai-chatbot").addEventListener("click", (event) => {
+        event.preventDefault();
 
-    botContainer.appendChild(botUI);
+        let element = event.target;
+        let id = element.id;
 
-    // Create reference for new elements in the UI
-    let checkReportButton = document.getElementById("check-report");
-    let legalInfoButton = document.getElementById("legal-info");
-    let submitButton = document.getElementById("submit-button");
-    let userInput = document.getElementById("user-input");
-    let chatWindow = document.getElementById("chat-window");
-    let fileComplaintButton = document.getElementById("file-complaint");
-    let followUpAppealButton = document.getElementById("follow-up-appeal");
-    let FOIARequestButton = document.getElementById("foia-request");
-    
-    // Function for dealing with bot response
-    const handleResponse = (response) => {
-        let botResponse = document.createElement("p");
-        botResponse.innerText = "Justice Sentinel: " + response;
-        chatWindow.appendChild(botResponse);
+        if (id === "submit-button") {
+            // Trigger actions based on user interaction
+            store.dispatch({ 
+                type: 'UPDATE_UI',
+                payload: {
+                    userInput: '',
+                    chatHistory: store.getState().chatHistory + '\n' + document.getElementById("user-input").value
+                } 
+            });
+        }
 
-        // Clear the user input field
-        userInput.value = "";        
-    }
-    
-    // Submit user query to bot
-    submitButton.onclick = () => {
-        let userText = userInput.value;
-        aiBot.converse(userText)
-            .then(response => handleResponse(response))
-            .catch(err => console.error(err));
-    };
-    
-    // Submit report status check request to bot
-    checkReportButton.onclick = () => {
-        let userText = "check report status";
-        aiBot.checkReportStatus(userText)
-            .then(response => handleResponse(response))
-            .catch(err => console.error(err));
-    };
-    
-    // Submit legal info request to bot
-    legalInfoButton.onclick = () => {
-        let userText = "provide legal info";
-        aiBot.provideLegalInfo(userText)
-            .then(response => handleResponse(response))
-            .catch(err => console.error(err));
-    };
+        // Other button handlers...
 
-    // Submit file complaint request to bot
-    fileComplaintButton.onclick = () => {
-        let userText = "file complaint";
-        aiBot.fileComplaint(userText)
-            .then(response => handleResponse(response))
-            .catch(err => console.error(err));
-    };
-    
-    // Submit follow up appeal request to bot
-    followUpAppealButton.onclick = () => {
-        let userText = "follow up appeal";
-        aiBot.followUpAppeal(userText)
-            .then(response => handleResponse(response))
-            .catch(err => console.error(err));
-    };
-    
-    // Submit FOIA request to bot
-    FOIARequestButton.onclick = () => {
-        let userText = "make FOIA request";
-        aiBot.handleFOIARequest(userText)
-            .then(response => handleResponse(response))
-            .catch(err => console.error(err));
-    };
+    });
 });
 ```
