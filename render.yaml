@@ -4,6 +4,8 @@ render:
   filepaths:
     main: 'main.cpp'
     secondary: 'secondary.cpp'
+    # Adding the 'type.spec' filepath to meet the original plan
+    type.spec: 'ai_bot.js'
   output:
     name: 'output.exe'
   compiler:
