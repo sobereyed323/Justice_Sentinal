@@ -2,8 +2,10 @@
 // Import modules
 const AIBot = require('./ai_bot.js');
 
+// Instantiate AIbot
+const bot = new AIBot({});
+
 // For managing UI state, we use a simple createStore function that mimics Redux
-// This makes state management more organized and changes to UI more consistent
 function createStore(reducer) {
     let state;
     let listeners = [];
@@ -87,6 +89,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     chatHistory: store.getState().chatHistory + '\n' + document.getElementById("user-input").value
                 } 
             });
+
+            // utilizing 'render' method from AIBot to log the state of the virtual DOM in the console whenever the submit button is clicked
+            bot.render();
         }
 
         // Other button handlers...
