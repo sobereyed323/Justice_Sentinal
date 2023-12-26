@@ -1,0 +1,11 @@
+# render.yaml has been created to set the configuration of the rendering process of the project
+render:
+  version: '1'
+  filepaths:
+    main: 'main.cpp'
+    secondary: 'secondary.cpp'
+  output:
+    name: 'output.exe'
+  compiler:
+    name: 'g++'
+    options: '-Wall -Wextra -std=c++14'
